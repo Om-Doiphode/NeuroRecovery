@@ -19,7 +19,7 @@ def create_chat_chain():
 
         # Create the prompt template
         prompt = PromptTemplate.from_template("""
-        Answer the following query in detail:
+        Answer the following query in detail, give the answer in html format without the starting code block:
         Query: {query}
         """)
 

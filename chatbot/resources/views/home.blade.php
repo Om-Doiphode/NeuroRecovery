@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Input</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-   
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> 
 </head>
 
 <body class="bg-gray-100 font-sans">
@@ -65,7 +65,8 @@
                 if (data.status === 'success') {
                     const botMessage = document.createElement('div');
                     botMessage.classList.add('mb-4', 'text-gray-700', 'p-4', 'bg-gray-100', 'rounded-lg');
-                    botMessage.textContent = data.data.response;
+                    // botMessage.textContent = data.data.response;
+                    botMessage.innerHTML = marked.parse(data.data.response);
                     messagesContainer.appendChild(botMessage);
                 } else {
                     const errorMessage = document.createElement('div');
@@ -87,3 +88,4 @@
 </body>
 
 </html>
+
